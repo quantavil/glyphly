@@ -6,13 +6,13 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-7.0-blue?logo=typescript)](https://www.typescriptlang.org)
 [![Vite](https://img.shields.io/badge/Vite-8.1-646CFF?logo=vite)](https://vitejs.dev)
 
-**Glyphly** is a high-craft, precision Unicode typography studio and aesthetic specimen laboratory. It transforms plain text into **188+ authentic mathematical, calligraphic, and cipher styles** across 13 curated taxonomies—with live typographic telemetry, an architectural scale ruler, quick case transformations, instant clipboard copying, and zero visual slop.
+**GLYPHLY** is a high-craft, precision Unicode typography studio and aesthetic specimen laboratory. It transforms plain text into **180+ authentic mathematical, calligraphic, and cipher styles** across 13 curated taxonomies—with live typographic telemetry, an architectural scale ruler, quick case transformations, instant clipboard copying, and zero visual slop.
 
 ---
 
 ## Highlights
 
-- ✦ **188+ Authentic Typographic Styles**: Comprehensive math alphabets, blackletter Fraktur, cursive scripts, geometric boxed tiles, ancient runes, ciphers, combining diacritics, and glitch styles.
+- ✦ **180+ Authentic Typographic Styles**: Comprehensive math alphabets, blackletter Fraktur, cursive scripts, geometric boxed tiles, ancient runes, ciphers, combining diacritics, and glitch styles.
 - ✦ **Guaranteed Depth Per Taxonomy**: Every single category contains **at least 8 distinct, authentic styles** (no sparse or 1-style categories).
 - ✦ **Rich Default Starred Collection**: Boots with **9 curated favorites** representing diverse typographic genres (Bold, Blackboard Double-Struck, Fraktur, Circled Spheres, Cyberpunk Shades, Tibetan Wings, Small Caps, Zalgo Glitch, SGA Galactic Script).
 - ✦ **Architectural Precision Scale Ruler**: Interactive drafting ruler with live needle position indicator, percentage readout, and bidirectional drag-and-scroll navigation.
@@ -39,10 +39,10 @@ Every category is guaranteed to contain at least 8 unique styles:
 | **Small Capitals** | `8` | Phonetic small caps, dotted small caps, mathematical superscript, and chemical subscript (`ᴀɴᴛɪɢʀᴀᴠɪᴛʏ`, `ᵃⁿᵗⁱᵍʳᵃᵛⁱᵗʸ`, `ₐₙₜᵢ`). |
 | **Mirrored & Flip** | `8` | 180° upside-down rotation, mirrored reflection, backwards reversing, and tracked variants (`ʎʇᴉʌɐɹƃᴉʇu∀`, `YTI⅃IVAYTIᙠA`). |
 | **Zalgo & Glitch** | `8` | Deterministic Zalgo void marks, cyber static, scanline overlays, corrupt strikes, and shaded redaction blocks (`A̶n̶t̶i̶g̶r̶a̶v̶i̶t̶y̶`, `▓▓▓▓▓▓▓▓▓▓▓`). |
-| **Line & Strike** | `25` | Single/double underline, strikethrough, wavy underline, overline, vector arrows, umlauts, lightning zigzag, and diagonal slashes (`A̲n̲t̲i̲`, `A̶n̶t̶i̶`). |
+| **Line & Strike** | `25` | Single/double underline, strikethrough, wavy underline, overline, vector arrows, umlauts, lightning zigzag, and diagonal slashes (`A̲n̲t̲i̲`, `A̶n̲t̲i̶`). |
 | **Ancient Runes** | `16` | Elder Futhark runes, Celtic Ogham, Ulfilas Gothic, Glagolitic, Phoenician, Coptic, Old Italic, and SGA Enchanting Table (`ᚨᛒᚲ`, `ᚐᚁᚉ`, `𐌰𐌱𐌲`, `ᒲ╎リᒷ`). |
-| **Ciphers & Code** | `27` | Morse code, Braille 6-dot matrix, ROT13 Caesar cipher, Atbash, Leet speak (`1337`), A1Z26 cipher, NATO phonetic, and raw 8-bit Binary bytes. |
-| **Symbols & Emoji** | `32` | Sparkles (`✨`), hearts (`💖`), flames (`🔥`), crescent moons (`🌙`), lucky clovers (`🍀`), swords (`⚔️`), and ornamental decorative borders. |
+| **Ciphers & Code** | `33` | Morse code, Braille 6-dot matrix, ROT13 Caesar cipher, Atbash, Leet speak (`1337`), A1Z26 cipher, NATO phonetic, and raw 8-bit Binary bytes. |
+| **Symbols & Ornaments** | `18` | Black & white stars (`★`, `☆`), sparkle stars (`✧`, `✦`), floral dingbats (`✿`), fleurons (`❦`), asterisms (`⁂`), peace (`☮`), yin-yang (`☯`), and crescent moons (`☽ ☾`). |
 
 ---
 
@@ -95,8 +95,8 @@ curl -fsSL https://bun.sh/install | bash
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/quantavil/fancy-text.git
-cd fancy-text
+git clone https://github.com/quantavil/glyphly.git
+cd glyphly
 bun install
 ```
 
@@ -112,7 +112,7 @@ Visit `http://localhost:5173/` in your browser.
 
 ### Running Tests
 
-Execute the comprehensive test suite across all 188+ styles and category constraints:
+Execute the comprehensive test suite across all 180+ styles and category constraints:
 
 ```bash
 bun test

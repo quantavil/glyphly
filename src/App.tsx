@@ -16,7 +16,7 @@ const CATS: { id: 'all' | 'favorites' | Cat; label: string }[] = [
   { id: 'line', label: 'Line & Strike' },
   { id: 'archaic', label: 'Ancient Runes' },
   { id: 'code', label: 'Ciphers & Code' },
-  { id: 'emoji', label: 'Symbols & Emoji' },
+  { id: 'emoji', label: 'Symbols & Ornaments' },
 ]
 
 const TICKS = Array.from({ length: 101 }, (_, i) => i)
@@ -329,7 +329,7 @@ export function App() {
       <nav id="site-nav">
         <div class="nav-inner">
           <div class="nav-brand">
-            <span class="wordmark">glyphly</span>
+            <span class="wordmark">GLYPHLY</span>
           </div>
 
           <button type="button" class="theme-btn" onClick={toggleTheme} title="Toggle theme">

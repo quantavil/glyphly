@@ -19,14 +19,14 @@ Glyphly is an aesthetic Unicode typography studio and specimen lab. The core mis
 ## 2. Codebase Structure & Responsibilities
 
 ```text
-fancy-text/
+glyphly/
 ├── public/
 │   └── glyphly.svg             # High-DPI continuous-curvature squircle SVG favicon
 ├── src/
 │   ├── engine/
 │   │   ├── engine.ts           # Typography engine: grapheme segmentation, measure(), isGraphemeSupported()
 │   │   ├── engine.test.ts      # Automated unit tests asserting mapping, metrics, and taxonomy invariants
-│   │   └── styles.ts           # Registry of 188+ styles, lookup tables, and category definitions
+│   │   └── styles.ts           # Registry of 180+ styles, lookup tables, and category definitions
 │   ├── App.tsx                 # Preact UI: Console panel, specimen river, ruler sync, scale slider, favorites
 │   ├── index.css               # Design system tokens, dark/light themes, kinetic CSS animations
 │   └── main.tsx                # Application mounting entrypoint
@@ -129,7 +129,7 @@ bun run format
 # 2. Check linting and static analysis
 bun run lint
 
-# 3. Run automated tests (all 188+ tests must pass)
+# 3. Run automated tests (all 180+ tests must pass)
 bun test
 
 # 4. Verify TypeScript compilation and production bundle build

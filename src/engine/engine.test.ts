@@ -113,12 +113,12 @@ describe('measure', () => {
     expect(m.cpl).toBe(0)
     expect(m.coverage).toBe(1)
 
-    const sparkle = getStyle('sparkle')
-    const mSparkle = measure('', sparkle)
-    expect(mSparkle.output).toBe('')
-    expect(mSparkle.bytes).toBe(0)
-    expect(mSparkle.words).toBe(0)
-    expect(mSparkle.lines).toBe(0)
+    const stars = getStyle('stars')
+    const mStars = measure('', stars)
+    expect(mStars.output).toBe('')
+    expect(mStars.bytes).toBe(0)
+    expect(mStars.words).toBe(0)
+    expect(mStars.lines).toBe(0)
   })
 })
 
@@ -155,15 +155,15 @@ describe('false positive elimination in style detection', () => {
     expect(m.coverage).toBe(1)
   })
 
-  it('removes false positives for wrapper styles (sparkle and heart)', () => {
-    const sparkle = getStyle('sparkle')
-    const heart = getStyle('heart')
+  it('removes false positives for wrapper styles (stars and wings)', () => {
+    const stars = getStyle('stars')
+    const wings = getStyle('wings')
 
-    const mSparkle = measure('Any arbitrary text 123!', sparkle)
-    const mHeart = measure('Any arbitrary text 123!', heart)
+    const mStars = measure('Any arbitrary text 123!', stars)
+    const mWings = measure('Any arbitrary text 123!', wings)
 
-    expect(mSparkle.coverage).toBe(1)
-    expect(mHeart.coverage).toBe(1)
+    expect(mStars.coverage).toBe(1)
+    expect(mWings.coverage).toBe(1)
   })
 
   it('honestly reports unmapped small-caps x/X as unsupported', () => {
@@ -484,13 +484,6 @@ describe('new spacing and overlay styles', () => {
     expect(isGraphemeSupported('!', spaced)).toBe(true)
   })
 
-  it('joins letters with clap emoji', () => {
-    const clap = getStyle('clap')
-    expect(transform('Hi', clap)).toBe('H👏i')
-    expect(transform('', clap)).toBe('')
-    expect(isGraphemeSupported('!', clap)).toBe(true)
-  })
-
   it('joins letters with hearts, arrows, waves and shades', () => {
     expect(transform('Hi', getStyle('hearts-between'))).toBe('H♥i')
     expect(transform('Hi', getStyle('arrow-join'))).toBe('H»i')
@@ -633,26 +626,19 @@ describe('regional indicators flag independence', () => {
 
 describe('decorative wrapper styles', () => {
   const wrappers = [
-    { id: 'sparkle', pre: '✨', post: '✨' },
-    { id: 'heart', pre: '💖', post: '💖' },
     { id: 'stars', pre: '★', post: '★' },
-    { id: 'fire', pre: '🔥', post: '🔥' },
-    { id: 'wings', pre: '꧁', post: '꧂' },
-    { id: 'flower', pre: '✿', post: '✿' },
-    { id: 'swords', pre: '⚔️', post: '⚔️' },
-    { id: 'ribbon', pre: '🎀', post: '🎀' },
-    { id: 'crown', pre: '👑', post: '👑' },
-    { id: 'stardust', pre: '⋆⁺₊⋆', post: '⋆⁺₊⋆' },
-    { id: 'skull', pre: '☠️', post: '☠️' },
+    { id: 'white-stars', pre: '☆', post: '☆' },
     { id: 'sparkle-star', pre: '✧', post: '✧' },
-    { id: 'butterfly', pre: '🦋', post: '🦋' },
+    { id: 'flourish-star', pre: '✦', post: '✦' },
+    { id: 'flower', pre: '✿', post: '✿' },
     { id: 'moon', pre: '☽', post: '☾' },
-    { id: 'lightning', pre: '⚡', post: '⚡' },
+    { id: 'sun-moon', pre: '☼', post: '☽' },
     { id: 'music', pre: '♫', post: '♪' },
-    { id: 'coffee', pre: '☕', post: '☕' },
     { id: 'infinity', pre: '∞', post: '∞' },
-    { id: 'lotus', pre: '🪷', post: '🪷' },
-    { id: 'diamond', pre: '💎', post: '💎' },
+    { id: 'fleuron', pre: '❦', post: '❦' },
+    { id: 'asterism', pre: '⁂', post: '⁂' },
+    { id: 'peace', pre: '☮', post: '☮' },
+    { id: 'yin-yang', pre: '☯', post: '☯' },
     { id: 'math-brackets', pre: '⟦', post: '⟧' },
     { id: 'brackets', pre: '【', post: '】' },
     { id: 'aesthetic', pre: '『', post: '』' },
@@ -664,18 +650,12 @@ describe('decorative wrapper styles', () => {
     { id: 'curly-quotes', pre: '❝', post: '❞' },
     { id: 'arrow-heart', pre: '➳❥', post: '❥➳' },
     { id: 'kawaii', pre: '〜☆', post: '☆〜' },
-    { id: 'snow', pre: '❄', post: '❄' },
-    { id: 'rainbow', pre: '🌈', post: '🌈' },
-    { id: 'ghost', pre: '👻', post: '👻' },
-    { id: 'dice', pre: '🎲', post: '🎲' },
-    { id: 'balloon', pre: '🎈', post: '🎈' },
-    { id: 'cherry', pre: '🍒', post: '🍒' },
-    { id: 'clover', pre: '🍀', post: '🍀' },
-    { id: 'wave', pre: '🌊', post: '🌊' },
     { id: 'cyberpunk', pre: '░▒▓', post: '▓▒░' },
     { id: 'crosses', pre: '†', post: '†' },
+    { id: 'wings', pre: '꧁', post: '꧂' },
     { id: 'ornament', pre: '༺', post: '༻' },
     { id: 'clan', pre: '乂', post: '乂' },
+    { id: 'stardust', pre: '⋆⁺₊⋆', post: '⋆⁺₊⋆' },
     { id: 'kirby-hug', pre: '(っ◔◡◔)っ ♥', post: '♥' },
     { id: 'little-sparkles', pre: '˜”*°•.˜”*°•', post: '•°*”˜.•°*”˜' },
     { id: 'finish-blocks', pre: '▀▄▀▄▀▄', post: '▄▀▄▀▄▀' },
