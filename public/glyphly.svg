@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Background Obsidian Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#18181b" />
+      <stop offset="100%" stop-color="#09090b" />
+    </linearGradient>
+
+    <!-- Outer Border Chamfer -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.32" />
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.10" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.22" />
+    </linearGradient>
+
+    <!-- Ambient Golden Glow -->
+    <radialGradient id="glowGrad" cx="75%" cy="25%" r="65%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.30" />
+      <stop offset="55%" stop-color="#f59e0b" stop-opacity="0.05" />
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Gold Sparkle Gradient -->
+    <linearGradient id="starGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="40%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+
+    <!-- Glyph Fill Gradient -->
+    <linearGradient id="glyphGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#e4e4e7" />
+    </linearGradient>
+
+    <!-- Drop Shadow for Letterform -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.65" />
+    </filter>
+    
+    <filter id="starGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="2" stdDeviation="8" flood-color="#f59e0b" flood-opacity="0.8" />
+    </filter>
+  </defs>
+
+  <!-- Squircle Base Canvas -->
+  <rect x="16" y="16" width="480" height="480" rx="116" fill="url(#bgGrad)" stroke="url(#borderGrad)" stroke-width="10" />
+  
+  <!-- Subtle Ambient Glow -->
+  <rect x="16" y="16" width="480" height="480" rx="116" fill="url(#glowGrad)" />
+
+  <!-- Inner Architectural Cadre -->
+  <rect x="42" y="42" width="428" height="428" rx="90" fill="none" stroke="#ffffff" stroke-opacity="0.07" stroke-width="2" stroke-dasharray="14 10" />
+
+  <!-- Typographic "G" Glyph (Monogram for Glyphly) -->
+  <g filter="url(#shadow)">
+    <!-- Main Architectural G Silhouette -->
+    <path d="
+      M 346 196
+      C 328 152 284 124 236 124
+      C 158 124 104 182 104 260
+      C 104 338 158 396 238 396
+      C 324 396 368 342 368 274
+      L 368 256
+      L 242 256
+      L 242 306
+      L 310 306
+      C 304 336 278 352 238 352
+      C 186 352 154 314 154 260
+      C 154 206 186 168 238 168
+      C 270 168 298 184 312 212
+      Z"
+      fill="url(#glyphGrad)"
+    />
+
+    <!-- Double-Struck Architectural Accent Line -->
+    <path d="
+      M 236 142
+      C 170 142 124 194 124 260
+      C 124 326 170 378 238 378
+      C 288 378 326 348 344 306"
+      fill="none"
+      stroke="#a1a1aa"
+      stroke-width="5"
+      stroke-linecap="round"
+      stroke-dasharray="8 6"
+      opacity="0.65"
+    />
+  </g>
+
+  <!-- Glowing Golden Sparkle (✦ Unicode Typography Star) -->
+  <g filter="url(#starGlow)">
+    <path d="
+      M 392 88
+      Q 392 136 440 136
+      Q 392 136 392 184
+      Q 392 136 344 136
+      Q 392 136 392 88
+      Z"
+      fill="url(#starGrad)"
+    />
+    <!-- Sparkle core highlight -->
+    <circle cx="392" cy="136" r="6" fill="#ffffff" />
+  </g>
+</svg>
