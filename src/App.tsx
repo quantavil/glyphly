@@ -1,5 +1,13 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'preact/hooks'
 import { type Cat, STYLES, transform } from './engine/engine'
+import {
+  ChevronDownIcon,
+  ClearIcon,
+  MoonIcon,
+  StarFilledIcon,
+  StarOutlineIcon,
+  SunIcon,
+} from './icons'
 
 const CATS: { id: 'all' | 'favorites' | Cat; label: string }[] = [
   { id: 'all', label: 'All Styles' },
@@ -59,7 +67,7 @@ async function copyToClipboard(text: string): Promise<boolean> {
 }
 
 export function App() {
-  const [text, setText] = useState('Antigravity Universe')
+  const [text, setText] = useState('GLYPHLY')
   const [cat, setCat] = useState<'all' | 'favorites' | Cat>('all')
   const [specimenScale, setSpecimenScale] = useState(24)
   const [copiedId, setCopiedId] = useState('')
@@ -210,7 +218,7 @@ export function App() {
     }
   }, [geom])
 
-  const previewValue = text.trim().length === 0 ? 'Antigravity Universe' : text
+  const previewValue = text.trim().length === 0 ? 'GLYPHLY' : text
 
   // Persist favorites
   const toggleFavorite = useCallback((id: string, e: Event) => {
@@ -332,9 +340,14 @@ export function App() {
             <span class="wordmark">GLYPHLY</span>
           </div>
 
-          <button type="button" class="theme-btn" onClick={toggleTheme} title="Toggle theme">
-            <span>{theme === 'dark' ? '☾' : '☀'}</span>
-            <span>{theme === 'dark' ? 'Dark' : 'Light'}</span>
+          <button
+            type="button"
+            class="theme-btn"
+            onClick={toggleTheme}
+            title={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+            aria-label="Toggle color theme"
+          >
+            {theme === 'dark' ? <MoonIcon size={18} /> : <SunIcon size={18} />}
           </button>
         </div>
       </nav>
@@ -369,7 +382,7 @@ export function App() {
               <span class="toggle-line" aria-hidden="true" />
               <span class="toggle-label">Controls</span>
               <span class={`toggle-chevron ${mobileExpanded ? 'open' : ''}`} aria-hidden="true">
-                ▾
+                <ChevronDownIcon size={14} />
               </span>
               <span class="toggle-line" aria-hidden="true" />
             </button>
@@ -439,7 +452,7 @@ export function App() {
             {/* Clear Button */}
             {text.length > 0 && (
               <button type="button" class="clear-btn" onClick={handleClear}>
-                ✕ Clear text
+                <ClearIcon size={12} /> Clear text
               </button>
             )}
           </div>
@@ -473,7 +486,7 @@ export function App() {
                         title={isFav ? 'Unstar' : 'Star'}
                         aria-label={isFav ? 'Unstar' : 'Star'}
                       >
-                        {isFav ? '★' : '☆'}
+                        {isFav ? <StarFilledIcon size={14} /> : <StarOutlineIcon size={14} />}
                       </button>
                     </div>
 

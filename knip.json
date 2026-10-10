@@ -1,0 +1,4 @@
+{
+  "$schema": "https://unpkg.com/knip@5/overview/configuration-schema.json",
+  "entry": ["src/engine/engine.ts", "src/icons.tsx"]
+}

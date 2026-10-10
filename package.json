@@ -13,16 +13,20 @@
     "preview": "vite preview",
     "test": "bun test",
     "test:vitest": "vitest run",
-    "lint": "biome check .",
-    "format": "biome format --write ."
+    "lint": "oxlint && biome check .",
+    "lint:oxlint": "oxlint",
+    "format": "biome format --write .",
+    "knip": "knip"
   },
   "dependencies": {
-    "preact": "^10.26.0"
+    "preact": "^10.29.8"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.0.0",
+    "@biomejs/biome": "^2.5.15",
+    "knip": "^6.41.0",
+    "oxlint": "^1.87.0",
     "typescript": "^7.0.2",
-    "vite": "^8.1.3",
-    "vitest": "^4.1.10"
+    "vite": "^8.3.4",
+    "vitest": "^4.1.11"
   }
 }
