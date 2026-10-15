@@ -19,7 +19,7 @@
     "knip": "knip"
   },
   "dependencies": {
-    "preact": "^10.29.8"
+    "preact": "^11.0.1"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.15",

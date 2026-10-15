@@ -617,10 +617,10 @@ export function App() {
 
       {/* Minimal Toast */}
       {toastMessage && (
-        <aside class="art-toast" role="status" aria-hidden="true">
+        <div class="art-toast" role="status" aria-hidden="true">
           <span>✓</span>
           <span>{toastMessage}</span>
-        </aside>
+        </div>
       )}
 
       {/* Footer */}
