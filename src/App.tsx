@@ -69,6 +69,7 @@ async function copyToClipboard(text: string): Promise<boolean> {
 export function App() {
   const [text, setText] = useState('GLYPHLY')
   const [cat, setCat] = useState<'all' | 'favorites' | Cat>('all')
+  const [query, setQuery] = useState('')
   const [specimenScale, setSpecimenScale] = useState(24)
   const [copiedId, setCopiedId] = useState('')
   const [toastMessage, setToastMessage] = useState('')
@@ -153,7 +154,7 @@ export function App() {
       ro.disconnect()
       window.removeEventListener('resize', measure)
     }
-  }, [text, cat, specimenScale])
+  }, [text, cat, query, specimenScale])
 
   // Direct 60fps/120fps hardware-accelerated scroll tracking for the drafting gauge
   useEffect(() => {
@@ -248,12 +249,20 @@ export function App() {
 
   // Filter styles
   const rows = useMemo(() => {
+    const q = query.trim().toLowerCase()
     return STYLES.filter((s) => {
-      if (cat === 'all') return true
-      if (cat === 'favorites') return favorites.includes(s.id)
-      return s.cat === cat
+      if (cat === 'favorites' ? !favorites.includes(s.id) : cat !== 'all' && s.cat !== cat) {
+        return false
+      }
+      if (q.length === 0) return true
+      return (
+        s.name.toLowerCase().includes(q) ||
+        s.id.toLowerCase().includes(q) ||
+        s.cat.toLowerCase().includes(q) ||
+        (s.keywords?.some((k) => k.toLowerCase().includes(q)) ?? false)
+      )
     })
-  }, [cat, favorites])
+  }, [cat, favorites, query])
 
   const handleCopy = useCallback(async (id: string, name: string, out: string) => {
     const ok = await copyToClipboard(out)
@@ -356,7 +365,11 @@ export function App() {
       <div class="studio-layout" style={{ '--specimen-size': `${specimenScale}px` }}>
         {/* Left Console Panel (Desktop: permanent left panel. Mobile: collapsible) */}
         <aside class={`console-panel ${mobileExpanded ? 'mobile-open' : ''}`}>
-          {/* Text Input */}
+          {/* Pre-text source input */}
+          <div class="control-label-row">
+            <span>Pre text</span>
+            <span class="control-val">{text.length === 0 ? 'empty' : `${text.length} chars`}</span>
+          </div>
           <textarea
             ref={inputRef}
             class="console-textarea"
@@ -422,6 +435,37 @@ export function App() {
               />
             </div>
 
+            {/* Style Search */}
+            <div class="control-group">
+              <div class="control-label-row">
+                <span>Search</span>
+                {query.trim().length > 0 && <span class="control-val">{rows.length} found</span>}
+              </div>
+              <div class="search-wrap">
+                <input
+                  type="search"
+                  class="search-input"
+                  value={query}
+                  placeholder="Search styles…"
+                  aria-label="Search styles"
+                  onInput={(e) => setQuery(e.currentTarget.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Escape') setQuery('')
+                  }}
+                />
+                {query.length > 0 && (
+                  <button
+                    type="button"
+                    class="search-clear-btn"
+                    onClick={() => setQuery('')}
+                    aria-label="Clear search"
+                  >
+                    <ClearIcon size={12} />
+                  </button>
+                )}
+              </div>
+            </div>
+
             {/* Category Directory List (Full View, not Dropdown) */}
             <div class="cat-directory-section">
               <div class="control-label-row">
@@ -463,10 +507,20 @@ export function App() {
           <div class="river-ledger">
             {rows.length === 0 ? (
               <div class="empty-state">
-                <p>No styles found in this category.</p>
-                <button type="button" class="clear-btn" onClick={() => setCat('all')}>
-                  Show All Styles
-                </button>
+                <p>
+                  {query.trim().length > 0
+                    ? `No styles match “${query.trim()}”.`
+                    : 'No styles found in this category.'}
+                </p>
+                {query.trim().length > 0 ? (
+                  <button type="button" class="clear-btn" onClick={() => setQuery('')}>
+                    Clear search
+                  </button>
+                ) : (
+                  <button type="button" class="clear-btn" onClick={() => setCat('all')}>
+                    Show All Styles
+                  </button>
+                )}
               </div>
             ) : (
               rows.map((s, idx) => {
@@ -477,8 +531,17 @@ export function App() {
 
                 return (
                   <article key={s.id} class={`river-row ${done ? 'copied-flash' : ''}`}>
-                    <div class="row-meta">
+                    <div class="row-topline">
                       <span class="row-idx">#{indexStr}</span>
+                      <button
+                        type="button"
+                        class="row-title-btn"
+                        onClick={() => handleCopy(s.id, s.name, out)}
+                        aria-label={`Copy ${s.name}`}
+                      >
+                        {s.name}
+                      </button>
+                      <span class="row-category">{s.cat}</span>
                       <button
                         type="button"
                         class={`star-btn ${isFav ? 'active' : ''}`}
@@ -492,15 +555,11 @@ export function App() {
 
                     <button
                       type="button"
-                      class="row-main-btn"
+                      class="row-specimen-btn"
                       onClick={() => handleCopy(s.id, s.name, out)}
-                      aria-label={`Copy ${s.name}`}
+                      aria-label={`Copy ${s.name} specimen`}
                     >
-                      <div class="row-header">
-                        <span class="row-title">{s.name}</span>
-                        <span class="row-category">{s.cat}</span>
-                      </div>
-                      <div class="row-specimen">{out}</div>
+                      <span class="row-specimen">{out}</span>
                     </button>
                   </article>
                 )

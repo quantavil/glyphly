@@ -1993,4 +1993,13 @@ export const STYLES: FancyStyle[] = [
     'love',
     'kawaii',
   ]),
+  wrap('kaomoji-joy', 'Kaomoji joy', '(˶ᵔᵕᵔ˶)', '(˶ᵔᵕᵔ˶)', 'emoji', [
+    'kaomoji',
+    'kawaii',
+    'cute',
+    'happy',
+    'face',
+    'emoticon',
+    'frame',
+  ]),
 ]

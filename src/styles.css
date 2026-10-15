@@ -207,9 +207,9 @@ select {
 /* Textarea */
 .console-textarea {
   width: 100%;
-  background: linear-gradient(180deg, var(--bg-raised), var(--bg-subtle));
-  border: 1px solid var(--line-strong);
-  border-radius: 4px;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 6px;
   padding: 0.9rem 1.05rem;
   color: var(--ink-strong);
   font-family: var(--font-sans);
@@ -221,21 +221,15 @@ select {
   max-height: 38vh;
   overflow-y: auto;
   outline: none;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.04),
-    0 4px 18px rgba(0, 0, 0, 0.25);
-  transition:
-    border-color 0.15s ease,
-    box-shadow 0.15s ease;
+  box-shadow: none;
+  transition: border-color 0.15s ease;
 }
 .console-textarea::placeholder {
   color: var(--faint);
 }
 .console-textarea:focus {
   border-color: var(--line-strong);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.04),
-    0 4px 18px rgba(0, 0, 0, 0.25);
+  box-shadow: none;
 }
 
 /* Mobile toggle wrapper (hidden on desktop) */
@@ -380,6 +374,51 @@ select {
   cursor: pointer;
 }
 
+/* Style search (flat) */
+.search-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.search-input {
+  width: 100%;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.5rem 2rem 0.5rem 0.7rem;
+  color: var(--ink-strong);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  outline: none;
+  box-shadow: none;
+  transition: border-color 0.15s ease;
+}
+.search-input::placeholder {
+  color: var(--faint);
+}
+.search-input:focus {
+  border-color: var(--line-strong);
+}
+.search-input::-webkit-search-cancel-button {
+  display: none;
+}
+.search-clear-btn {
+  position: absolute;
+  right: 6px;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  color: var(--muted);
+  cursor: pointer;
+}
+.search-clear-btn:hover {
+  background: var(--bg-subtle);
+  color: var(--ink-strong);
+}
+
 /* Clear button */
 .clear-btn {
   background: transparent;
@@ -424,12 +463,10 @@ select {
 .river-row {
   background: var(--bg);
   padding: 1.15rem 1.75rem;
-  cursor: pointer;
   transition: background 0.15s ease;
-  display: grid;
-  grid-template-columns: 64px 1fr;
-  gap: 1.5rem;
-  align-items: baseline;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
   position: relative;
   width: 100%;
 }
@@ -437,16 +474,18 @@ select {
   background: var(--bg-raised);
 }
 
-.row-meta {
+.row-topline {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  align-items: baseline;
+  gap: 0.6rem;
+  min-width: 0;
 }
 .row-idx {
   font-family: var(--font-mono);
   font-size: 0.65rem;
   color: var(--faint);
   letter-spacing: 0.04em;
+  flex-shrink: 0;
 }
 .star-btn {
   background: none;
@@ -460,6 +499,8 @@ select {
   width: 20px;
   height: 20px;
   line-height: 1;
+  flex-shrink: 0;
+  align-self: center;
   transition:
     color 0.15s,
     transform 0.15s;
@@ -472,27 +513,19 @@ select {
   color: #f59e0b;
 }
 
-.row-main-btn {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  min-width: 0;
-  text-align: left;
-  cursor: pointer;
-  width: 100%;
-}
-.row-header {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-}
-.row-title {
+.row-title-btn {
   font-family: var(--font-display);
   font-size: 0.88rem;
   font-weight: 500;
   letter-spacing: -0.01em;
   color: var(--ink-strong);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+  cursor: pointer;
+  padding: 0;
+  min-width: 0;
 }
 .row-category {
   font-family: var(--font-mono);
@@ -500,6 +533,15 @@ select {
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--muted);
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.row-specimen-btn {
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+  padding: 0;
+  min-width: 0;
 }
 .row-specimen {
   font-size: var(--specimen-size, 1.5rem);
@@ -521,8 +563,10 @@ select {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   gap: 1.25rem;
   color: var(--muted);
+  flex: 1;
 }
 
 /* Toast */
@@ -831,12 +875,8 @@ footer {
     max-height: 260px;
   }
   .river-row {
-    grid-template-columns: 1fr;
     gap: 0.4rem;
     padding: 1.25rem;
-  }
-  .row-meta {
-    justify-content: space-between;
   }
   footer {
     padding: 1rem 1.25rem;

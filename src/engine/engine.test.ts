@@ -657,6 +657,7 @@ describe('decorative wrapper styles', () => {
     { id: 'clan', pre: '乂', post: '乂' },
     { id: 'stardust', pre: '⋆⁺₊⋆', post: '⋆⁺₊⋆' },
     { id: 'kirby-hug', pre: '(っ◔◡◔)っ ♥', post: '♥' },
+    { id: 'kaomoji-joy', pre: '(˶ᵔᵕᵔ˶)', post: '(˶ᵔᵕᵔ˶)' },
     { id: 'little-sparkles', pre: '˜”*°•.˜”*°•', post: '•°*”˜.•°*”˜' },
     { id: 'finish-blocks', pre: '▀▄▀▄▀▄', post: '▄▀▄▀▄▀' },
   ]
