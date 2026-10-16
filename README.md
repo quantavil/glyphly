@@ -28,21 +28,21 @@
 
 Every category is guaranteed to contain at least 8 unique styles:
 
-| Category | Styles | Description & Sample Output |
-| :--- | :---: | :--- |
-| **Clean & Classic** | `9` | Mathematical serif bold, sans bold, italic, monospace, and double-struck blackboard bold (`𝐀𝐧𝐭𝐢𝐠𝐫𝐚𝐯𝐢𝐭𝐲`, `𝔸𝕟𝕥𝕚𝕘𝕣𝕒𝕧𝕚𝕥𝕪`). |
-| **Gothic & Script** | `8` | Blackletter Fraktur, bold Fraktur, cursive script, bold script, and spaced variants (`𝔄𝔫𝔱𝔦𝔤𝔯𝔞𝔳𝔦𝔱𝔶`, `𝒜𝓃𝓉𝒾ℊ𝓇𝒶𝓋𝒾𝓉𝓎`). |
-| **Squared Tiles** | `9` | Squared letters, negative black tiles, enclosing squares, keycaps, and CRT terminal frames (`🄰🄽🅃🄸🄶🅁🄰🅅🄸🅃🅈`, `🅰🅽🆃🅸🅶🆁🅰🆅🅸🆃🆈`). |
-| **Brackets & Frames** | `22` | Japanese lenticular (`【 】`), corner quotes (`『 』`), double angle (`《 》`), Cyberpunk ASCII shades (`░▒▓ ▓▒░`), and Tibetan wings (`꧁ ꧂`). |
-| **Circled Spheres** | `8` | White circled letters/digits, black bubbles, parenthesized glyphs, and combining bubble enclosures (`Ⓐⓝⓣⓘⓖⓡⓐⓥⓘⓣⓨ`, `🅐🅝🅣🅘🅖🅡🅐🅥🅘🅣🅨`). |
-| **Vaporwave & Spaced** | `8` | Fullwidth Zenkaku characters, aesthetic spaced tracking, middle-dot tracking, slash tracking, dash tracking, and pipe tracking (`Ａｎｔｉｇｒａｖｉｔｙ`, `A · n · t · i`). |
-| **Small Capitals** | `8` | Phonetic small caps, dotted small caps, mathematical superscript, and chemical subscript (`ᴀɴᴛɪɢʀᴀᴠɪᴛʏ`, `ᵃⁿᵗⁱᵍʳᵃᵛⁱᵗʸ`, `ₐₙₜᵢ`). |
-| **Mirrored & Flip** | `8` | 180° upside-down rotation, mirrored reflection, backwards reversing, and tracked variants (`ʎʇᴉʌɐɹƃᴉʇu∀`, `YTI⅃IVAYTIᙠA`). |
-| **Zalgo & Glitch** | `8` | Deterministic Zalgo void marks, cyber static, scanline overlays, corrupt strikes, and shaded redaction blocks (`A̶n̶t̶i̶g̶r̶a̶v̶i̶t̶y̶`, `▓▓▓▓▓▓▓▓▓▓▓`). |
-| **Line & Strike** | `25` | Single/double underline, strikethrough, wavy underline, overline, vector arrows, umlauts, lightning zigzag, and diagonal slashes (`A̲n̲t̲i̲`, `A̶n̲t̲i̶`). |
-| **Ancient Runes** | `16` | Elder Futhark runes, Celtic Ogham, Ulfilas Gothic, Glagolitic, Phoenician, Coptic, Old Italic, and SGA Enchanting Table (`ᚨᛒᚲ`, `ᚐᚁᚉ`, `𐌰𐌱𐌲`, `ᒲ╎リᒷ`). |
-| **Ciphers & Code** | `33` | Morse code, Braille 6-dot matrix, ROT13 Caesar cipher, Atbash, Leet speak (`1337`), A1Z26 cipher, NATO phonetic, and raw 8-bit Binary bytes. |
-| **Symbols & Ornaments** | `18` | Black & white stars (`★`, `☆`), sparkle stars (`✧`, `✦`), floral dingbats (`✿`), fleurons (`❦`), asterisms (`⁂`), peace (`☮`), yin-yang (`☯`), and crescent moons (`☽ ☾`). |
+| Category                | Styles | Description & Sample Output                                                                                                                                                 |
+| :---------------------- | :----: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Clean & Classic**     |  `9`   | Mathematical serif bold, sans bold, italic, monospace, and double-struck blackboard bold (`𝐀𝐧𝐭𝐢𝐠𝐫𝐚𝐯𝐢𝐭𝐲`, `𝔸𝕟𝕥𝕚𝕘𝕣𝕒𝕧𝕚𝕥𝕪`).                                                    |
+| **Gothic & Script**     |  `8`   | Blackletter Fraktur, bold Fraktur, cursive script, bold script, and spaced variants (`𝔄𝔫𝔱𝔦𝔤𝔯𝔞𝔳𝔦𝔱𝔶`, `𝒜𝓃𝓉𝒾ℊ𝓇𝒶𝓋𝒾𝓉𝓎`).                                                         |
+| **Squared Tiles**       |  `9`   | Squared letters, negative black tiles, enclosing squares, keycaps, and CRT terminal frames (`🄰🄽🅃🄸🄶🅁🄰🅅🄸🅃🅈`, `🅰🅽🆃🅸🅶🆁🅰🆅🅸🆃🆈`).                                                  |
+| **Brackets & Frames**   |  `22`  | Japanese lenticular (`【 】`), corner quotes (`『 』`), double angle (`《 》`), Cyberpunk ASCII shades (`░▒▓ ▓▒░`), and Tibetan wings (`꧁ ꧂`).                              |
+| **Circled Spheres**     |  `8`   | White circled letters/digits, black bubbles, parenthesized glyphs, and combining bubble enclosures (`Ⓐⓝⓣⓘⓖⓡⓐⓥⓘⓣⓨ`, `🅐🅝🅣🅘🅖🅡🅐🅥🅘🅣🅨`).                                          |
+| **Vaporwave & Spaced**  |  `8`   | Fullwidth Zenkaku characters, aesthetic spaced tracking, middle-dot tracking, slash tracking, dash tracking, and pipe tracking (`Ａｎｔｉｇｒａｖｉｔｙ`, `A · n · t · i`). |
+| **Small Capitals**      |  `8`   | Phonetic small caps, dotted small caps, mathematical superscript, and chemical subscript (`ᴀɴᴛɪɢʀᴀᴠɪᴛʏ`, `ᵃⁿᵗⁱᵍʳᵃᵛⁱᵗʸ`, `ₐₙₜᵢ`).                                            |
+| **Mirrored & Flip**     |  `8`   | 180° upside-down rotation, mirrored reflection, backwards reversing, and tracked variants (`ʎʇᴉʌɐɹƃᴉʇu∀`, `YTI⅃IVAYTIᙠA`).                                                  |
+| **Zalgo & Glitch**      |  `8`   | Deterministic Zalgo void marks, cyber static, scanline overlays, corrupt strikes, and shaded redaction blocks (`A̶n̶t̶i̶g̶r̶a̶v̶i̶t̶y̶`, `▓▓▓▓▓▓▓▓▓▓▓`).                               |
+| **Line & Strike**       |  `25`  | Single/double underline, strikethrough, wavy underline, overline, vector arrows, umlauts, lightning zigzag, and diagonal slashes (`A̲n̲t̲i̲`, `A̶n̲t̲i̶`).                          |
+| **Ancient Runes**       |  `16`  | Elder Futhark runes, Celtic Ogham, Ulfilas Gothic, Glagolitic, Phoenician, Coptic, Old Italic, and SGA Enchanting Table (`ᚨᛒᚲ`, `ᚐᚁᚉ`, `𐌰𐌱𐌲`, `ᒲ╎リᒷ`).                     |
+| **Ciphers & Code**      |  `33`  | Morse code, Braille 6-dot matrix, ROT13 Caesar cipher, Atbash, Leet speak (`1337`), A1Z26 cipher, NATO phonetic, and raw 8-bit Binary bytes.                                |
+| **Symbols & Ornaments** |  `18`  | Black & white stars (`★`, `☆`), sparkle stars (`✧`, `✦`), floral dingbats (`✿`), fleurons (`❦`), asterisms (`⁂`), peace (`☮`), yin-yang (`☯`), and crescent moons (`☽ ☾`).  |
 
 ---
 
@@ -149,11 +149,13 @@ bun run build
 Glyphly produces standard static assets that deploy anywhere in seconds:
 
 ### Cloudflare Pages
+
 - **Build command**: `bun run build`
 - **Build output directory**: `dist`
 - **Environment variables**: `BUN_VERSION=1.4.2`
 
 ### Vercel / Netlify / GitHub Pages
+
 - **Build command**: `bun run build`
 - **Publish directory**: `dist`
 

@@ -1,32 +1,33 @@
 {
   "name": "glyphly",
-  "private": true,
   "version": "1.0.0",
+  "private": true,
   "type": "module",
-  "packageManager": "bun@1.4.2",
-  "engines": {
-    "bun": ">=1.4.0"
-  },
   "scripts": {
-    "dev": "vite",
-    "build": "tsc --noEmit && vite build",
-    "preview": "vite preview",
+    "dev": "vp dev",
+    "build": "tsc --noEmit && vp build",
+    "preview": "vp preview",
     "test": "bun test",
-    "test:vitest": "vitest run",
-    "lint": "oxlint && biome check .",
-    "lint:oxlint": "oxlint",
-    "format": "biome format --write .",
+    "test:vitest": "vp test run",
+    "check": "vp check",
+    "lint": "vp lint",
+    "format": "vp fmt",
     "knip": "knip"
   },
   "dependencies": {
     "preact": "^11.0.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.5.15",
     "knip": "^6.41.0",
-    "oxlint": "^1.88.0",
     "typescript": "^7.0.2",
-    "vite": "^8.3.4",
-    "vitest": "^5.0.5"
-  }
+    "vite": "npm:@voidzero-dev/vite-plus-core@1.2.0",
+    "vite-plus": "1.2.0"
+  },
+  "overrides": {
+    "vite": "npm:@voidzero-dev/vite-plus-core@1.2.0"
+  },
+  "engines": {
+    "bun": ">=1.4.0"
+  },
+  "packageManager": "bun@1.4.2"
 }
